@@ -22,6 +22,8 @@ app.use(express.json())
 app.get('/', (req,res) => {
     res.status(200).send('text')
     console.log("Я выполнил запрос")
+    const userAgent = req.headers['user-agent']
+    console.log(userAgent)
 })
 
 app.listen(process.env.PORT, () => console.log(`Server is working in the PORT: ${process.env.PORT}`))
