@@ -8,8 +8,10 @@ export const verifyToken = (req,res, next) => {
     console.log('I am here in Verify')
     console.log(req.body)
     if(!accessToken){
+        console.log('I am here now')
         return res.status(401).json({message: 'unathorized'})
     }
+    console.log('And here')
 
     jwt.verify(accessToken,process.env.ACCESS_TOKEN_SECRET_KEY,(err, decoded) => {
         if(err){
