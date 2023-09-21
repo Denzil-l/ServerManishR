@@ -7,7 +7,9 @@ export const verifyToken = (req,res, next) => {
     const accessToken = req.body.accessToken
     console.log('I am here in Verify')
     console.log(req.body)
-    if(!accessToken) return res.status(401).json({message: 'unathorized'})
+    if(!accessToken){
+        return res.status(401).json({message: 'unathorized'})
+    }
 
     jwt.verify(accessToken,process.env.ACCESS_TOKEN_SECRET_KEY,(err, decoded) => {
         if(err){
