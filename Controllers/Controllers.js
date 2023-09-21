@@ -138,7 +138,7 @@ export const Login = async (req,res) => {
                                  
                                                const userId = userExist.id
                                                const phone_number = userExist.phone_number
-                                               const accessToken = jwt.sign({userId, phone_number}, process.env.ACCESS_TOKEN_SECRET_KEY, {expiresIn: '2m'})
+                                               const accessToken = jwt.sign({userId, phone_number}, process.env.ACCESS_TOKEN_SECRET_KEY, {expiresIn: '2h'})
                                                // Then Server checks source of the request. If it's a browser, Server send a cookie with this token, if it's a Mobile App, Server make something else
                                                
                                                res.status(200).json({message: 'you loged in', token: accessToken})
